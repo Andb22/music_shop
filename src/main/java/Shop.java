@@ -6,8 +6,8 @@ public class Shop {
 
     private ArrayList<ISell> stock;
 
-    public Shop(ArrayList<ISell> stock) {
-        this.stock = stock;
+    public Shop() {
+        this.stock = new ArrayList<ISell>();
     }
 
     public ArrayList<ISell> getStock() {
