@@ -1,13 +1,16 @@
 package instruments;
 
-public class Instrument {
+import behaviours.IPlay;
+import behaviours.ISell;
 
-    public String name;
-    public String colour;
-    public InstrumentType instrumentType;
-    public String sound;
-    public double buyPrice;
-    public double sellPrice;
+public abstract class Instrument implements IPlay, ISell {
+
+    private String name;
+    private String colour;
+    private InstrumentType instrumentType;
+    private String sound;
+    private double buyPrice;
+    private double sellPrice;
 
     public Instrument(String name, String colour, InstrumentType instrumentType, String sound, double buyPrice, double sellPrice) {
         this.name = name;
@@ -19,26 +22,30 @@ public class Instrument {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getColour() {
-        return colour;
+        return this.colour;
     }
 
     public InstrumentType getInstrumentType() {
-        return instrumentType;
-    }
-
-    public String getSound() {
-        return sound;
+        return this.instrumentType;
     }
 
     public double getBuyPrice() {
-        return buyPrice;
+        return this.buyPrice;
     }
 
     public double getSellPrice() {
-        return sellPrice;
+        return this.sellPrice;
+    }
+
+    public double calculateMarkup() {
+        return ((this.sellPrice - this.buyPrice)/this.buyPrice)*100;
+    }
+
+    public String play(){
+        return this.sound;
     }
 }

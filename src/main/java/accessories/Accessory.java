@@ -1,9 +1,8 @@
 package accessories;
 
-import behaviours.IPlay;
 import behaviours.ISell;
 
-public class Accessory implements IPlay, ISell {
+public class Accessory implements ISell {
 
     public String name;
     public String description;
@@ -20,4 +19,5 @@ public class Accessory implements IPlay, ISell {
     public double calculateMarkup() {
         return (sellPrice - buyPrice);
     }
+
 }
