@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Shop {
 
-    private ArrayList<ISell> stock;
+    ArrayList<ISell> stock;
 
     public Shop() {
         this.stock = new ArrayList<ISell>();
@@ -21,4 +21,14 @@ public class Shop {
     public void removeItem(int index){
         this.stock.remove(index);
     }
+
+    public double TotalPotentialProfit(){
+        double total = 0;
+        for(ISell item: this.stock){
+            total += (item.getBuyPrice() * (item.calculateMarkup()/100));
+        }
+        return total;
+    }
+
+
 }

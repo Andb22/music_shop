@@ -1,6 +1,7 @@
 import instruments.Instrument;
 import instruments.InstrumentType;
 import instruments.Piano;
+import instruments.PianoType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class PianoTest {
 
     @Before
     public void before(){
-        piano = new Piano("Steinway", "Black", InstrumentType.KEYBOARD, "plink", 1000.00, 2400.00);
+        piano = new Piano("Steinway", "Black", InstrumentType.KEYBOARD, "plink", 1000.00, 2400.00, PianoType.GRAND);
     }
 
     @Test
@@ -48,5 +49,10 @@ public class PianoTest {
     @Test
     public void canPlay(){
         assertEquals("plink", piano.play());
+    }
+
+    @Test
+    public void canGetPianoType(){
+        assertEquals(PianoType.GRAND, piano.getPianoType());
     }
 }
